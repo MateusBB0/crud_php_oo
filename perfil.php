@@ -4,7 +4,7 @@ session_start();
 use App\Model\User;
 
 if ( isset($_SESSION['update_msg'])) {
-   echo  $_SESSION['update_msg']. "<br>";
+   echo  "<span id ='msg'>".$_SESSION['update_msg']. "</span><br>";
 }
 
 require("app/Controllers/conexao.php");
@@ -21,6 +21,7 @@ $user->getEmail();
 $user->getGenero();
 
 foreach ($_SESSION['read'] as $dados) {
+   echo "<title>".$dados['nome']."</title>";
    echo $dados['nome'] . "<br>";
    echo $dados['senha'] . "<br>";
    echo $dados['email'] . "<br>";
@@ -43,3 +44,9 @@ foreach ($_SESSION['read'] as $dados) {
 }
 
 ?>
+<script>
+     let x = document.getElementById("msg");
+                
+                x.style.display = 'block';
+                setTimeout(function(){ x.style.display = 'none';}, 3000);
+</script>

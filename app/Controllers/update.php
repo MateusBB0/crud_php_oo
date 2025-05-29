@@ -21,7 +21,10 @@ if(isset($_POST['submit'])){
     var_dump($user);
     $update = new UserDAO();
     $update->update($user);
-    var_dump($update);
+    
+    // Modificar na página do perfil
+    $update->read();
+    $_SESSION['read'] = $update->read();
     header('location: ../../perfil.php');
     $_SESSION['update_msg'] = "Dados alterados";
 }else{
