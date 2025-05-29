@@ -1,7 +1,9 @@
 <?php
 session_start();
-// unset($_SESSION['id']);
-// session_destroy();
-// header('location: ../../login.php');
+require_once("../Model/usuarioDao.php");
+use App\Model\UserDAO;
+
+$logout = new UserDAO();
+$logout->Logout($_GET['id']);
 
 ?>

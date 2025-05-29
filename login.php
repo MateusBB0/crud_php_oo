@@ -1,6 +1,7 @@
 <?php
-if(isset($_SESSION['error_msg'])){
-    echo $_SESSION['error_msg'];
+session_start();
+if(isset($_SESSION['logout_msg'])){
+    echo $_SESSION['logout_msg'];
 }
 ?>
 

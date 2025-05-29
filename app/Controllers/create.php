@@ -26,23 +26,7 @@ if (!isset($_POST['submit']) )  {
     $_SESSION['genero'] = $genero;
 
 
-    // class CRUD extends User{
-    //     public function create(User $u) {
-    //         $sql = "INSERT INTO usuario(nome, senha, email, genero) VALUES(?, ?, ?, ?)";
-
-    //         $stmt = Conexao::getConn()->prepare($sql);
-    //         $stmt->bindValue(1, $u->getNome());
-    //         $stmt->bindValue(2, $u->getSenha());
-    //         $stmt->bindValue(3, $u->getEmail());
-    //         $stmt->bindValue(4, $u->getGenero());
-
-    //         $stmt->execute();
-
-    //     }
-    // }
-
-
-
+    // Usar a função create
 
     $newUser = new User();
     $newUser->setNome($nome);

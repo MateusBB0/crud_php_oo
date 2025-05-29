@@ -29,13 +29,27 @@ class UserDAO extends User{
                     return $result;
                     
             }else{
-                echo "erro";
+                header("location: ../../login.php");
             }
             
     }
 
+    public function update(User $u) {
+        global $id;
+        $sql = "UPDATE  usuario SET nome = ?, senha = ?, email = ?, genero = ? WHERE id = '".$id."' ";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $u->getNome());
+        $stmt->bindValue(2, $u->getSenha());
+        $stmt->bindValue(3, $u->getEmail());
+        $stmt->bindValue(4, $u->getGenero());
+        // $stmt->bindValue(5, $u->getId());
+
+        $stmt->execute();
+
+    }
+
     public function Delete($id){
-        $sql = "DELETE * FROM usuario WHERE id = ? ";
+        $sql = "DELETE FROM usuario WHERE id = ? ";
 
     $stmt = Conexao::getConn()->prepare($sql);
     $stmt->bindValue(1, $id);
