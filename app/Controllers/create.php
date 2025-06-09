@@ -2,12 +2,13 @@
 namespace App\Controllers;
 use App\Model\User;
 use App\Model\UserDAO;
+
 use Conexao;
 session_start();
 require_once("conexao.php");
 require_once("../Model/user.php");
 require_once("../Model/usuarioDao.php");
-
+// require_once("../vendor/autoload.php)";
 
 
 if (!isset($_POST['submit']) )  {
@@ -19,7 +20,7 @@ if (!isset($_POST['submit']) )  {
     $genero = $_POST['genero'];
 
     // Dados de sessão
-    $_SESSION['id'] = $id;
+    // $_SESSION['id'] = $id;
     $_SESSION['nome'] = $nome;
     $_SESSION['senha'] = $senha;
     $_SESSION['email'] = $email;
@@ -33,9 +34,20 @@ if (!isset($_POST['submit']) )  {
     $newUser->setSenha($senha);
     $newUser->setEmail($email);
     $newUser->setGenero($genero);
+
+    // Criar um novo usuário
     $create = new UserDAO();
     $create->create($newUser);
 
+    // Ler/Selecionar os dados do usuário criado
+    $create->read();
+    $_SESSION['read'] = $create->read();
+
+   
     $_SESSION['msg'] = "Seus dados foram cadastrados " . $newUser->getNome();
-    header("location:../../perfil.php");
+    // Mandar uma mensagem no email ao novo usuário
+    include("send_email.php");
+
+
+    header("location: ../../perfil.php");
 }

@@ -30,5 +30,6 @@ if(isset($_SESSION['logout_msg'])){
         <input type="password" name="senha" placeholder="Digite sua senha*" required>
         <button type="submit" name="submit">Enviar</button>
     </form>
+    <p>Não tem perfil? <a href="index.php">Cadastre-se</a></p>
 </body>
 </html>

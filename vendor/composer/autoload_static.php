@@ -47,6 +47,7 @@ class ComposerStaticInit69f37c6abf4c8f83934d98a732f0ef31
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'M' => 
         array (
@@ -146,6 +147,10 @@ class ComposerStaticInit69f37c6abf4c8f83934d98a732f0ef31
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'MabeEnum\\' => 
         array (
